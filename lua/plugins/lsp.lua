@@ -11,7 +11,7 @@ return {
 
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "clangd" },
+        ensure_installed = { "lua_ls", "gopls", "texlab" },
       })
     end
   },
@@ -28,10 +28,9 @@ return {
       lspconfig.gopls.setup({
         capabilities = capabilities
       })
-      lspconfig.clangd.setup({
+      lspconfig.texlab.setup({
         capabilities = capabilities
       })
-
       vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
