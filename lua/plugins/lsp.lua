@@ -33,7 +33,7 @@ return {
 						},
 					},
 				},
-				pyright = {},
+				pylsp = {},
 				sqlls = {},
       }
 
@@ -47,6 +47,17 @@ return {
 					settings = config.settings,
 				})
 			end
+
+      -- Configure borderd for LspInfo ui
+			require("lspconfig.ui.windows").default_options.border = "rounded"
+
+      -- Configure diagostic
+      vim.diagnostic.config({
+        virtual_text = true,
+        float = {
+            border = "rounded",
+        },
+      })
 
       vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
